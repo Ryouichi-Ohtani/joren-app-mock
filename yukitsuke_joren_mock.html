@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><title>行きつけ (JOREN) - App Mock</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Noto Sans CJK JP',sans-serif; }
+.phone { width:390px; height:844px; background:#faf6f0; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+.status { height:44px; display:flex; justify-content:space-between; align-items:center; padding:0 24px; font-size:13px; font-weight:700; color:#2b2b2b; }
+.appbar { padding:6px 20px 12px; display:flex; justify-content:space-between; align-items:center; }
+.appbar .title { font-size:22px; font-weight:900; color:#1d1d1f; }
+.appbar .sub { font-size:11px; color:#b0483a; font-weight:700; letter-spacing:1px; }
+.content { flex:1; overflow:hidden; padding:0 16px 80px; }
+.tabbar { height:76px; background:#fff; border-top:1px solid #eee; display:flex; position:absolute; bottom:0; left:0; right:0; }
+.tabbar .tb { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:10px; color:#9a9a9a; font-weight:700; }
+.tabbar .tb .ic { width:24px; height:24px; border-radius:7px; background:#d9d4cc; margin-bottom:4px; }
+.tabbar .tb.on { color:#b0483a; }
+.tabbar .tb.on .ic { background:#b0483a; }
+.chip { display:inline-block; padding:7px 14px; border-radius:20px; background:#fff; border:1px solid #e5ded2; font-size:12px; font-weight:700; color:#555; margin:0 6px 8px 0; }
+.chip.on { background:#b0483a; color:#fff; border-color:#b0483a; }
+.card { background:#fff; border-radius:16px; padding:14px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.avatar { width:52px; height:52px; border-radius:50%; color:#fff; font-weight:900; font-size:20px; display:flex; align-items:center; justify-content:center; }
+.btn { display:block; text-align:center; padding:15px; border-radius:14px; font-weight:900; font-size:15px; }
+.btn.p { background:#b0483a; color:#fff; }
+.btn.s { background:#fff; color:#1f3a5f; border:2px solid #1f3a5f; }
+.tag { display:inline-block; font-size:10px; font-weight:700; padding:3px 8px; border-radius:8px; background:#f3ece1; color:#8a6d3b; margin-right:4px; }
+.small { font-size:11px; color:#8a8a8a; }
+
+html,body{background:#2a2622;min-height:100vh;}
+.wrap{display:flex;flex-direction:column;align-items:center;padding:28px 0 60px;}
+.frame .phone{border-radius:42px;border:10px solid #111;box-shadow:0 20px 60px rgba(0,0,0,.5);height:844px;}
+.cap{color:#d8cdbd;text-align:center;font-weight:800;margin-bottom:14px;font-size:15px;}
+.nav{position:sticky;top:0;background:#1c1916;padding:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;z-index:10;}
+.nav button{background:#3a332c;color:#d8cdbd;border:none;border-radius:10px;padding:9px 14px;font-weight:800;font-size:12px;cursor:pointer;font-family:inherit;}
+.nav button.on{background:#b0483a;color:#fff;}
+h1{color:#f3ece1;text-align:center;font-size:20px;padding:22px 0 4px;}
+.sub2{color:#8f857a;text-align:center;font-size:12px;margin-bottom:10px;}
+</style></head><body>
+<h1>行きつけ（JOREN）&mdash; アプリモック</h1>
+<div class="sub2">日本人ロコ × 外国人観光客マッチング ／ 2026-09-12 ブレスト議事録より</div>
+<div class="nav"><button onclick="show(0)" id="b0">ようこそ / ロール選択</button><button onclick="show(1)" id="b1">旅行者ホーム（行きつけ発見）</button><button onclick="show(2)" id="b2">マッチ＆チャット（自動翻訳）</button><button onclick="show(3)" id="b3">収益化① 旅行者パス課金</button><button onclick="show(4)" id="b4">収益化② ロコ版・広告つきホーム</button></div>
+<div class="wrap"><div class="frame" id="f0" style="display:block"><div class="cap">ようこそ / ロール選択</div><div class="phone"><div class="status"><span>19:04</span><span>JOREN &#9679;&#9679;&#9679;&#9679; 100%</span></div><div class="content">
+<div style="height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 12px;">
+  <div style="text-align:center;margin-bottom:36px;">
+    <div style="width:96px;height:96px;margin:0 auto 18px;border-radius:26px;background:linear-gradient(135deg,#b0483a,#7d2f26);display:flex;align-items:center;justify-content:center;color:#fff;font-size:40px;font-weight:900;">行</div>
+    <div style="font-size:34px;font-weight:900;color:#1d1d1f;letter-spacing:2px;">行きつけ</div>
+    <div style="font-size:13px;font-weight:800;color:#b0483a;letter-spacing:4px;margin-top:4px;">JOREN &mdash; 常連</div>
+    <div style="font-size:14px;color:#666;margin-top:16px;line-height:1.8;">ガイドブックに載らない、地元の行きつけへ。<br/>日本人ロコが&ldquo;自分の常連店&rdquo;に連れて行く<br/>マッチングアプリ</div>
+  </div>
+  <a class="btn p" style="margin-bottom:12px;">I&rsquo;m a Traveler &mdash; 旅行者として始める</a>
+  <a class="btn s">地元ロコとして始める（無料）</a>
+  <div style="text-align:center;margin-top:22px;" class="small">旅行者は72時間パス制 / ロコは広告付き無料</div>
+  <div style="text-align:center;margin-top:14px;"><span class="chip on">日本語</span><span class="chip">English</span><span class="chip">한국어</span><span class="chip">中文</span></div>
+</div></div></div></div><div class="frame" id="f1" style="display:none"><div class="cap">旅行者ホーム（行きつけ発見）</div><div class="phone"><div class="status"><span>19:04</span><span>JOREN &#9679;&#9679;&#9679;&#9679; 100%</span></div><div class="appbar"><div><div class="sub">JOREN / TRAVELER</div><div class="title">みつける</div></div><div style="background:#1f3a5f;color:#fff;border-radius:10px;padding:6px 10px;font-size:11px;font-weight:800;">PASS 残り 52:10</div></div><div class="content">
+<div style="background:#fff;border-radius:14px;padding:12px 14px;margin-bottom:12px;color:#999;font-size:13px;border:1px solid #eee;">検索&nbsp;|&nbsp; 京都 ・ 今夜行ける行きつけ</div>
+<div style="margin-bottom:6px;"><span class="chip on">居酒屋</span><span class="chip">銭湯</span><span class="chip">純喫茶</span><span class="chip">横丁</span><span class="chip">スナック</span></div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;margin-bottom:10px;">
+    <div class="avatar" style="background:#1f3a5f;">ケ</div>
+    <div style="margin-left:12px;flex:1;">
+      <div style="font-weight:900;font-size:15px;color:#222;">ケンジ <span class="small" style="font-weight:400;">52・京都在住</span></div>
+      <div style="font-size:12px;color:#b0483a;font-weight:700;">常連歴 15年</div>
+    </div>
+    <div style="background:#f6efe3;border-radius:10px;padding:6px 10px;font-size:11px;font-weight:800;color:#8a6d3b;">★ 4.9</div>
+  </div>
+  <div style="background:#faf6f0;border-radius:12px;padding:10px;margin-bottom:10px;">
+    <div style="font-weight:800;font-size:13px;color:#333;">木屋町の路地裏居酒屋「まる十」</div>
+    <div class="small" style="margin-top:2px;"><span class="tag">英語すこし</span><span class="tag">おっちゃん常連多め</span><span class="tag">カウンター8席</span></div>
+  </div>
+  <a class="btn p" style="padding:11px;font-size:13px;">この行きつけに連れて行ってもらう</a>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;margin-bottom:10px;">
+    <div class="avatar" style="background:#b0483a;">ユ</div>
+    <div style="margin-left:12px;flex:1;">
+      <div style="font-weight:900;font-size:15px;color:#222;">ユイ <span class="small" style="font-weight:400;">29・京都在住</span></div>
+      <div style="font-size:12px;color:#b0483a;font-weight:700;">常連歴 6年</div>
+    </div>
+    <div style="background:#f6efe3;border-radius:10px;padding:6px 10px;font-size:11px;font-weight:800;color:#8a6d3b;">★ 4.9</div>
+  </div>
+  <div style="background:#faf6f0;border-radius:12px;padding:10px;margin-bottom:10px;">
+    <div style="font-weight:800;font-size:13px;color:#333;">銭湯あがりの立ち飲み「すず屋」</div>
+    <div class="small" style="margin-top:2px;"><span class="tag">English OK</span><span class="tag">女性歓迎</span><span class="tag">地元価格</span></div>
+  </div>
+  <a class="btn p" style="padding:11px;font-size:13px;">この行きつけに連れて行ってもらう</a>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;margin-bottom:10px;">
+    <div class="avatar" style="background:#5b7a4a;">タ</div>
+    <div style="margin-left:12px;flex:1;">
+      <div style="font-weight:900;font-size:15px;color:#222;">タクミ <span class="small" style="font-weight:400;">34・京都在住</span></div>
+      <div style="font-size:12px;color:#b0483a;font-weight:700;">常連歴 9年</div>
+    </div>
+    <div style="background:#f6efe3;border-radius:10px;padding:6px 10px;font-size:11px;font-weight:800;color:#8a6d3b;">★ 4.9</div>
+  </div>
+  <div style="background:#faf6f0;border-radius:12px;padding:10px;margin-bottom:10px;">
+    <div style="font-weight:800;font-size:13px;color:#333;">昭和純喫茶「ロマン」モーニング</div>
+    <div class="small" style="margin-top:2px;"><span class="tag">朝7時から</span><span class="tag">ナポリタン</span><span class="tag">店主が名物</span></div>
+  </div>
+  <a class="btn p" style="padding:11px;font-size:13px;">この行きつけに連れて行ってもらう</a>
+</div>
+</div><div class="tabbar"><div class="tb on"><div class="ic"></div>みつける</div><div class="tb "><div class="ic"></div>マッチ</div><div class="tb "><div class="ic"></div>チャット</div><div class="tb "><div class="ic"></div>パス</div><div class="tb "><div class="ic"></div>マイページ</div></div></div></div><div class="frame" id="f2" style="display:none"><div class="cap">マッチ＆チャット（自動翻訳）</div><div class="phone"><div class="status"><span>19:04</span><span>JOREN &#9679;&#9679;&#9679;&#9679; 100%</span></div><div class="appbar"><div><div class="sub">MATCHED</div><div class="title">チャット</div></div></div><div class="content">
+<div style="display:flex;align-items:center;background:#fff;border-radius:14px;padding:10px 12px;margin-bottom:14px;box-shadow:0 2px 6px rgba(0,0,0,.05);">
+  <div class="avatar" style="background:#1f3a5f;width:40px;height:40px;font-size:16px;">ケ</div>
+  <div style="margin-left:10px;flex:1;"><div style="font-weight:900;font-size:14px;">ケンジ（ロコ）</div><div class="small" style="color:#3aa05a;font-weight:700;">● マッチ成立・オンライン</div></div>
+  <div class="tag" style="background:#e9f2ff;color:#1f3a5f;">自動翻訳 ON</div>
+</div>
+<div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:10px;"><div style="max-width:75%;background:#fff;color:#333;padding:10px 13px;border-radius:16px;font-size:13px;line-height:1.6;box-shadow:0 1px 4px rgba(0,0,0,.05);">Welcome to Kyoto! 今夜、まる十の大将に席とっとくで。</div><div class="small" style="margin-top:3px;">原文: 英語 &rarr; 自動翻訳</div></div>
+<div style="display:flex;flex-direction:column;align-items:flex-end;margin-bottom:10px;"><div style="max-width:75%;background:#b0483a;color:#fff;padding:10px 13px;border-radius:16px;font-size:13px;line-height:1.6;box-shadow:0 1px 4px rgba(0,0,0,.05);">Thank you!! I want to talk with the regulars at the counter</div></div>
+<div style="display:flex;flex-direction:column;align-items:flex-start;margin-bottom:10px;"><div style="max-width:75%;background:#fff;color:#333;padding:10px 13px;border-radius:16px;font-size:13px;line-height:1.6;box-shadow:0 1px 4px rgba(0,0,0,.05);">カウンターのおっちゃんら、めっちゃ喋るから安心して(笑)</div></div>
+<div class="card" style="border:2px solid #b0483a;">
+  <div class="small" style="color:#b0483a;font-weight:800;margin-bottom:4px;">行きつけプラン</div>
+  <div style="font-weight:900;font-size:14px;">今夜 19:00　居酒屋「まる十」</div>
+  <div class="small" style="margin-top:4px;">木屋町通り・現地集合 ／ 会計は地元価格・割り勘</div>
+  <div style="display:flex;margin-top:10px;">
+    <a class="btn p" style="flex:1;padding:10px;font-size:13px;margin-right:8px;">承認する</a>
+    <a class="btn s" style="flex:1;padding:10px;font-size:13px;">時間を変える</a>
+  </div>
+</div>
+<div style="background:#fff;border-radius:22px;padding:12px 16px;color:#aaa;font-size:13px;border:1px solid #eee;margin-top:6px;">メッセージを入力… &nbsp;(自動翻訳されます)</div>
+</div><div class="tabbar"><div class="tb "><div class="ic"></div>みつける</div><div class="tb "><div class="ic"></div>マッチ</div><div class="tb on"><div class="ic"></div>チャット</div><div class="tb "><div class="ic"></div>パス</div><div class="tb "><div class="ic"></div>マイページ</div></div></div></div><div class="frame" id="f3" style="display:none"><div class="cap">収益化① 旅行者パス課金</div><div class="phone"><div class="status"><span>19:04</span><span>JOREN &#9679;&#9679;&#9679;&#9679; 100%</span></div><div class="appbar"><div><div class="sub">MONETIZATION ①</div><div class="title">パス購入</div></div></div><div class="content">
+<div style="background:linear-gradient(135deg,#1f3a5f,#0e1f38);border-radius:20px;padding:22px;color:#fff;margin-bottom:16px;">
+  <div style="font-size:11px;letter-spacing:3px;font-weight:800;color:#c9a35d;">TRAVELER PASS</div>
+  <div style="font-size:26px;font-weight:900;margin-top:6px;">JOREN 72時間パス</div>
+  <div style="font-size:13px;color:#b9c6d8;margin-top:6px;">滞在中だけ課金。サブスク不要の一時課金モデル</div>
+  <div style="margin-top:16px;display:flex;align-items:baseline;"><div style="font-size:38px;font-weight:900;">&yen;1,200</div><div style="margin-left:8px;color:#b9c6d8;font-size:13px;">/ 72時間　($7.99)</div></div>
+</div>
+<div class="card">
+  <div style="display:flex;align-items:center;margin-bottom:10px;"><div style="width:20px;height:20px;border-radius:50%;background:#3aa05a;color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-right:10px;">&#10003;</div><div style="font-size:13px;color:#333;font-weight:600;">ロコへのマッチ申請 無制限</div></div>
+  <div style="display:flex;align-items:center;margin-bottom:10px;"><div style="width:20px;height:20px;border-radius:50%;background:#3aa05a;color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-right:10px;">&#10003;</div><div style="font-size:13px;color:#333;font-weight:600;">チャット自動翻訳（日英韓中）</div></div>
+  <div style="display:flex;align-items:center;margin-bottom:10px;"><div style="width:20px;height:20px;border-radius:50%;background:#3aa05a;color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-right:10px;">&#10003;</div><div style="font-size:13px;color:#333;font-weight:600;">行きつけ店の地元価格ガイド</div></div>
+  <div style="display:flex;align-items:center;margin-bottom:10px;"><div style="width:20px;height:20px;border-radius:50%;background:#3aa05a;color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-right:10px;">&#10003;</div><div style="font-size:13px;color:#333;font-weight:600;">緊急サポート＆安全チェックイン</div></div>
+</div>
+<div style="display:flex;margin-bottom:14px;">
+  <div class="card" style="flex:1;margin-right:10px;text-align:center;margin-bottom:0;"><div class="small">24時間</div><div style="font-weight:900;font-size:18px;">&yen;600</div></div>
+  <div class="card" style="flex:1;text-align:center;margin-bottom:0;border:2px solid #b0483a;"><div class="small" style="color:#b0483a;font-weight:800;">人気</div><div style="font-weight:900;font-size:18px;">&yen;1,200 <span class="small">/72h</span></div></div>
+</div>
+<a class="btn p">パスを購入して今夜行く</a>
+<div style="text-align:center;margin-top:12px;" class="small">日本人ロコはずっと無料（広告でサポートされています）</div>
+</div><div class="tabbar"><div class="tb "><div class="ic"></div>みつける</div><div class="tb "><div class="ic"></div>マッチ</div><div class="tb "><div class="ic"></div>チャット</div><div class="tb on"><div class="ic"></div>パス</div><div class="tb "><div class="ic"></div>マイページ</div></div></div></div><div class="frame" id="f4" style="display:none"><div class="cap">収益化② ロコ版・広告つきホーム</div><div class="phone"><div class="status"><span>19:04</span><span>JOREN &#9679;&#9679;&#9679;&#9679; 100%</span></div><div class="appbar"><div><div class="sub">JOREN / LOCAL (無料・広告あり)</div><div class="title">ロコホーム</div></div></div><div class="content">
+<div class="card" style="background:linear-gradient(135deg,#b0483a,#7d2f26);color:#fff;">
+  <div style="display:flex;align-items:center;justify-content:space-between;">
+    <div><div style="font-size:11px;font-weight:800;color:#f0cdc6;">あなたの常連ランク</div><div style="font-size:20px;font-weight:900;margin-top:2px;">まる十の主（ぬし）</div></div>
+    <div style="text-align:center;background:rgba(255,255,255,.15);border-radius:12px;padding:8px 14px;"><div style="font-size:20px;font-weight:900;">12</div><div style="font-size:10px;">案内した旅人</div></div>
+  </div>
+</div>
+<div style="font-weight:900;font-size:15px;margin:6px 0 10px;color:#333;">新しいマッチリクエスト <span style="color:#b0483a;">3件</span></div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;">
+    <div class="avatar" style="background:#c9702e;width:44px;height:44px;font-size:16px;">E</div>
+    <div style="margin-left:10px;flex:1;"><div style="font-weight:900;font-size:14px;">Emma <span class="small" style="font-weight:400;">オーストラリア</span></div><div class="small">「カウンターで常連さんと飲みたい」今夜〜</div></div>
+  </div>
+  <div style="display:flex;margin-top:10px;">
+    <a class="btn p" style="flex:1;padding:9px;font-size:12px;margin-right:8px;">承認</a>
+    <a class="btn s" style="flex:1;padding:9px;font-size:12px;">あとで</a>
+  </div>
+</div>
+
+<div class="card">
+  <div style="display:flex;align-items:center;">
+    <div class="avatar" style="background:#5b7a4a;width:44px;height:44px;font-size:16px;">L</div>
+    <div style="margin-left:10px;flex:1;"><div style="font-weight:900;font-size:14px;">Liam <span class="small" style="font-weight:400;">イギリス</span></div><div class="small">「銭湯のあと立ち飲みに行きたい」明日</div></div>
+  </div>
+  <div style="display:flex;margin-top:10px;">
+    <a class="btn p" style="flex:1;padding:9px;font-size:12px;margin-right:8px;">承認</a>
+    <a class="btn s" style="flex:1;padding:9px;font-size:12px;">あとで</a>
+  </div>
+</div>
+<div style="border:1px dashed #cbbfae;border-radius:14px;padding:12px 14px;background:#fffdf8;display:flex;align-items:center;">
+  <div style="width:44px;height:44px;border-radius:10px;background:#e8b93c;display:flex;align-items:center;justify-content:center;font-weight:900;color:#7a5a00;font-size:11px;">AD</div>
+  <div style="margin-left:12px;flex:1;">
+    <div style="font-size:12px;font-weight:800;color:#555;">スーパードライ 生ジョッキ缶 <span class="small">［広告］</span></div>
+    <div class="small">行きつけの一杯目に。今なら店舗クーポン配布中</div>
+  </div>
+</div>
+<div class="small" style="text-align:center;margin-top:10px;">ロコ版は広告表示で無料 &mdash; MONETIZATION ②</div>
+</div><div class="tabbar"><div class="tb on"><div class="ic"></div>リクエスト</div><div class="tb "><div class="ic"></div>チャット</div><div class="tb "><div class="ic"></div>マイ行きつけ</div><div class="tb "><div class="ic"></div>設定</div></div></div></div></div>
+<script>
+function show(i){for(let k=0;k<5;k++){document.getElementById('f'+k).style.display=k===i?'block':'none';document.getElementById('b'+k).className=k===i?'on':'';}}
+show(0);
+</script></body></html>
